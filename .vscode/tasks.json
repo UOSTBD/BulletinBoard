@@ -5,20 +5,21 @@
         {
             "label": "백엔드 서버 실행 - 개발 모드",
             "type": "shell",
-            "command": "uv run fastapi run dev",
+            "command": "uv run fastapi dev main.py",
             "options": {
                 "cwd": "${workspaceFolder}/backend",
                 "env": {
-                    "PORT": "8000"
+                    "host": "0.0.0.0",
+                    "port": "8000"
                 }
             },
-            "isBackground": true,
             "group": {
                 "kind": "build",
                 "isDefault": false
             },
+            "isBackground": true,
             "problemMatcher": [],
-            "detail": "백엔드 서버를 개발 모드로 실행합니다.",
+            "detail": "백엔드 서버를 개발 모드로 실행합니다."
         },
         {
             "label": "백엔드 서버 실행",
@@ -44,7 +45,8 @@
             "options": {
                 "cwd": "${workspaceFolder}/frontend",
                 "env": {
-                    "PORT": "3000"
+                    "host": "0.0.0.0",
+                    "port": "3000"
                 }
             },
             "isBackground": true,
@@ -61,12 +63,27 @@
             "options": {
                 "cwd": "${workspaceFolder}/frontend",
                 "env": {
-                    "PORT": "3000"
+                    "host": "0.0.0.0",
+                    "port": "3000"
                 }
             },
             "problemMatcher": [],
             "group": "build",
-            "detail": "Next.js 앱을 빌드합니다."
+            "detail": "프론트엔드 앱을 빌드합니다."
+        },
+        /* 전체 실행 */
+        {
+            "label": "전체 실행 - 개발 모드",
+            "dependsOn": [
+                "프론트엔드 서버 실행 - 개발 모드",
+                "백엔드 서버 실행 - 개발 모드"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "백엔드와 프론트엔드 개발 서버를 모두 실행합니다."
         }
     ]
 }

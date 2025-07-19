@@ -1,0 +1,15 @@
+# python 캐시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 로깅 파일
+*.log
+
+# 데이터베이스
+*.db
+
+# 환경 변수 파일
+.env
+.env.*
