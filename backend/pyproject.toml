@@ -3,7 +3,15 @@ name = "backend"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+<<<<<<< HEAD
 requires-python = ">=3.12"
+=======
+<<<<<<< HEAD
+requires-python = ">=3.8"
+=======
+requires-python = ">=3.12"
+>>>>>>> 6042af77fbb4270367cb3e1e35ec5799e36481a5
+>>>>>>> 4ed347709d5d252d188d9d11720ec810e6184bfa
 dependencies = [
     "fastapi>=0.116.1",
 ]
