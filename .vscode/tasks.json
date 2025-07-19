@@ -5,17 +5,13 @@
         {
             "label": "백엔드 서버 실행 - 개발 모드",
             "type": "shell",
-            "command": "uv run fastapi dev main.py",
+            "command": "bash scripts/run_tasks.sh run_backend_dev",
             "options": {
-                "cwd": "${workspaceFolder}/backend",
-                "env": {
-                    "host": "0.0.0.0",
-                    "port": "8000"
-                }
+                "cwd": "${workspaceFolder}"
             },
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
             "isBackground": true,
             "problemMatcher": [],
@@ -24,15 +20,15 @@
         {
             "label": "백엔드 서버 실행",
             "type": "shell",
-            "command": "uv run uvicorn main:app --host 0.0.0.0 --port 8000",
+            "command": "bash scripts/run_tasks.sh run_backend_prod",
             "options": {
-                "cwd": "${workspaceFolder}/backend"
+                "cwd": "${workspaceFolder}"
             },
-            "isBackground": true,
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
+            "isBackground": true,
             "problemMatcher": [],
             "detail": "백엔드 서버를 실행합니다.",
         },
@@ -41,34 +37,29 @@
         {
             "label": "프론트엔드 서버 실행 - 개발 모드",
             "type": "shell",
-            "command": "npm run dev",
+            "command": "bash scripts/run_tasks.sh run_frontend_dev",
             "options": {
-                "cwd": "${workspaceFolder}/frontend",
-                "env": {
-                    "host": "0.0.0.0",
-                    "port": "3000"
-                }
+                "cwd": "${workspaceFolder}",
             },
-            "isBackground": true,
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
+            "isBackground": true,
             "detail": "프론트엔드 서버를 개발 모드로 실행합니다."
         },
         {
             "label": "프론트엔드 빌드",
             "type": "shell",
-            "command": "npm run build",
+            "command": "bash scripts/run_tasks.sh build_frontend",
             "options": {
-                "cwd": "${workspaceFolder}/frontend",
-                "env": {
-                    "host": "0.0.0.0",
-                    "port": "3000"
-                }
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
             },
             "problemMatcher": [],
-            "group": "build",
             "detail": "프론트엔드 앱을 빌드합니다."
         },
         /* 전체 실행 */
@@ -78,11 +69,11 @@
                 "프론트엔드 서버 실행 - 개발 모드",
                 "백엔드 서버 실행 - 개발 모드"
             ],
-            "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
+            "problemMatcher": [],
             "detail": "백엔드와 프론트엔드 개발 서버를 모두 실행합니다."
         }
     ]
