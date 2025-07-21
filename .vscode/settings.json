@@ -3,8 +3,11 @@
     "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
     "black-formatter.cwd": "${workspaceFolder}/backend",
     "python.analysis.typeCheckingMode": "basic",
-    "editor.defaultFormatter": "ms-python.black-formatter",
-
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        
+    },
+    
     /* 프론트엔드 설정 */
     "files.associations": {
         "*.css": "tailwindcss",
@@ -12,4 +15,7 @@
     "editor.quickSuggestions": {
         "strings": "on"
     },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
