@@ -9,6 +9,15 @@ ENDPOINTS_DIR = Path(__file__).parent / "endpoints"
 
 
 def include_all_routers(router: APIRouter, endpoints_dir: Path):
+    """전역 라우터 등록
+
+    생성된 모든 엔드포인트에서 `router`라는 이름으로 등록된 라우터를 수거합니다.
+    수거된 라우터는 인자로 들어온 `router`에 포함됩니다.
+
+    Args:
+        router (APIRouter): 전역 라우터
+        endpoints_dir (Path): 엔드포인트를 담은 디렉토리 주소
+    """
     # endpoints 폴더 하위 .py 파일 순회
     for file_path in endpoints_dir.iterdir():
         if (
@@ -34,10 +43,14 @@ def include_all_routers(router: APIRouter, endpoints_dir: Path):
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
 
-            # 'router' 객체 존재 유무 확인 및 include
-            if hasattr(module, "router"):
-                router.include_router(module.router)
-            else:
+            # 'router' 변수 존재 유무 확인 및 include
+            if isinstance(endpoint_router := getattr(module, "router"), APIRouter):
+                router.include_router(endpoint_router)
+            elif endpoint_router is None:
                 logging.warning(
                     f"'router'가 없는 endpoint가 발견되었습니다: {file_path.name}"
+                )
+            else:
+                logging.warning(
+                    f"'router'라는 이름의 변수에 APIRouter가 아닌 객체를 할당되었습니다: {file_path.name}"
                 )
