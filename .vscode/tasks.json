@@ -5,9 +5,8 @@
         {
             "label": "백엔드 서버 실행 - 개발 모드",
             "type": "process",
-            "command": "wsl",
+            "command": "bash",
             "args": [
-                "bash",
                 "scripts/run_tasks.sh",
                 "run_backend_dev",
             ],
@@ -25,8 +24,11 @@
         {
             "label": "백엔드 서버 실행",
             "type": "process",
-            "command": "wsl", 
-            "args": ["bash", "scripts/run_tasks.sh", "run_backend_prod"],
+            "command": "bash", 
+            "args": [
+                "scripts/run_tasks.sh",
+                "run_backend_prod"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -43,8 +45,11 @@
         {
             "label": "프론트엔드 서버 실행 - 개발 모드",
             "type": "process",
-            "command": "wsl",
-            "args": ["bash","scripts/run_tasks.sh","run_frontend_dev"],
+            "command": "bash",
+            "args": [
+                "scripts/run_tasks.sh",
+                "run_frontend_dev"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}",
             },
@@ -58,8 +63,11 @@
         {
             "label": "프론트엔드 빌드",
             "type": "process",
-            "command": "wsl",
-            "args": ["bash","scripts/run_tasks.sh","build_frontend"],
+            "command": "bash",
+            "args": [
+                "scripts/run_tasks.sh",
+                "build_frontend"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
