@@ -4,7 +4,7 @@
         /* 백엔드 실행 태스크 */
         {
             "label": "백엔드 서버 실행 - 개발 모드",
-            "type": "process",
+            "type": "shell",
             "command": "bash",
             "args": [
                 "scripts/run_tasks.sh",
@@ -23,7 +23,7 @@
         },
         {
             "label": "백엔드 서버 실행",
-            "type": "process",
+            "type": "shell",
             "command": "bash", 
             "args": [
                 "scripts/run_tasks.sh",
@@ -44,7 +44,7 @@
         /* 프론트엔드 실행 태스크 */
         {
             "label": "프론트엔드 서버 실행 - 개발 모드",
-            "type": "process",
+            "type": "shell",
             "command": "bash",
             "args": [
                 "scripts/run_tasks.sh",
@@ -62,7 +62,7 @@
         },
         {
             "label": "프론트엔드 빌드",
-            "type": "process",
+            "type": "shell",
             "command": "bash",
             "args": [
                 "scripts/run_tasks.sh",
